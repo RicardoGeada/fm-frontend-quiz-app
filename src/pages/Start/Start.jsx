@@ -1,7 +1,9 @@
+import Header from "../../components/Header/Header";
+
 function Start() {
   return (
     <div className="page">
-      <header className="header"></header>
+      <Header />
       <main className="content"></main>
     </div>
   );
