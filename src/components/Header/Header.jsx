@@ -1,7 +1,12 @@
 import "./Header.css";
+import ThemeToggle from "./ThemeToggle/ThemeToggle";
 
 function Header() {
-  return <header>Header</header>;
+  return (
+    <header>
+      <ThemeToggle />
+    </header>
+  );
 }
 
 export default Header;
