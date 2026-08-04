@@ -1,9 +1,11 @@
 import "./Header.css";
+import QuizInfo from "./QuizInfo/QuizInfo";
 import ThemeToggle from "./ThemeToggle/ThemeToggle";
 
 function Header() {
   return (
     <header>
+      <QuizInfo />
       <ThemeToggle />
     </header>
   );
