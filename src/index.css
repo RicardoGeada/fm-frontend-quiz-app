@@ -20,6 +20,7 @@
   --color-red-500: #ee5454;
 
   /* spacing */
+  --spacing-50: 0.25rem; /*   4px */
   --spacing-100: 0.5rem; /*   8px */
   --spacing-200: 1rem; /*  16px */
   --spacing-300: 1.5rem; /*  24px */
