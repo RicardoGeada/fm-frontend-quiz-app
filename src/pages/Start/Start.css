@@ -1,0 +1,22 @@
+.page {
+    padding: var(--spacing-200) var(--spacing-300);
+}
+
+.page__content {
+    margin: auto;
+    max-width: 1157px;
+}
+
+/* layout - tablet */
+@media screen and (min-width: 48em) {
+  .page {
+    padding: var(--spacing-500) var(--spacing-800);
+  }
+}
+
+/* layout - desktop */
+@media screen and (min-width: 67.5em) {
+  .page {
+    padding: var(--spacing-1100) var(--spacing-800);
+  }
+}

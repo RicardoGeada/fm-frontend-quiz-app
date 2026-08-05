@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle/ThemeToggle";
 
 function Header() {
   return (
-    <header>
+    <header className="header">
       <QuizInfo />
       <ThemeToggle />
     </header>
