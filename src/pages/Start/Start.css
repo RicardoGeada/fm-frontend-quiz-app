@@ -37,3 +37,17 @@
 .headline__subtitle {
   color: var(--color-text-secondary);
 }
+
+/* layout - tablet */
+@media (min-width: 48em) {
+  .headline__subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* layout - desktop */
+@media (min-width: 90em) {
+  .headline {
+    gap: var(--spacing-600);
+  }
+}
