@@ -6,7 +6,15 @@ function Start() {
     <div className="page">
       <div className="page__content">
         <Header />
-        <main className="content"></main>
+        <main>
+          <div className="headline">
+            <h1 className="headline__title text-preset-2">
+              <span className="text-preset-2--light">Welcome to the</span>
+              <span>Frontend Quiz!</span>
+            </h1>
+            <span className="headline__subtitle text-preset-5">Pick a subject to get started.</span>
+          </div>
+        </main>
       </div>
     </div>
   );
