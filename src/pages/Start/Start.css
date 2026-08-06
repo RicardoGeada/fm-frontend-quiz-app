@@ -5,6 +5,9 @@
 .page__content {
   margin: auto;
   max-width: 1157px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-600);
 }
 
 /* layout - tablet */
@@ -18,6 +21,10 @@
 @media screen and (min-width: 67.5em) {
   .page {
     padding: var(--spacing-1100) var(--spacing-800);
+  }
+
+  .page__content {
+    gap: var(--spacing-1100);
   }
 }
 
