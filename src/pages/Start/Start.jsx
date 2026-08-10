@@ -1,5 +1,6 @@
 import "./Start.css";
 import Header from "../../components/Header/Header";
+import ButtonWithIcon from "../../components/ButtonWithIcon/ButtonWithIcon";
 
 function Start() {
   return (
@@ -13,6 +14,9 @@ function Start() {
               <span>Frontend Quiz!</span>
             </h1>
             <span className="headline__subtitle text-preset-5">Pick a subject to get started.</span>
+          </div>
+          <div className="quiz-buttons">
+            <ButtonWithIcon />
           </div>
         </main>
       </div>
