@@ -19,7 +19,7 @@ function Quiz() {
               </p>
             </div>
 
-            <div className="quiz__progress-bar"></div>
+            <div className="quiz__progress-bar" style={{"--progress": "60%"}}></div>
           </section>
 
           <form className="quiz__form">{/* Antworten */}</form>
