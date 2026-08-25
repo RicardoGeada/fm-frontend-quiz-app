@@ -1,5 +1,6 @@
 import "./Quiz.css";
 import Header from "../../components/Header/Header";
+import AnswerOption from "../../components/AnswerOption/AnswerOption";
 
 function Quiz() {
   return (
@@ -19,10 +20,15 @@ function Quiz() {
               </p>
             </div>
 
-            <div className="quiz__progress-bar" style={{"--progress": "60%"}}></div>
+            <div
+              className="quiz__progress-bar"
+              style={{ "--progress": "60%" }}
+            ></div>
           </section>
 
-          <form className="quiz__form">{/* Antworten */}</form>
+          <form className="quiz__form">
+            <AnswerOption />
+          </form>
         </main>
       </div>
     </div>
