@@ -27,10 +27,13 @@ function Quiz() {
           </section>
 
           <form className="quiz__form">
-            <AnswerOption letter={"A"} answer={"4.5 : 1"} isSubmitted={true} isRightAnswer/>
-            <AnswerOption letter={"B"} answer={"3 : 1"} isSubmitted={true}  />
-            <AnswerOption letter={"C"} answer={"2.5 : 1"} isSubmitted={true}  isChosenAnswer/>
-            <AnswerOption letter={"D"} answer={"5 : 1"} isSubmitted={true}  />
+            <div className="quiz__answers">
+              <AnswerOption letter={"A"} answer={"4.5 : 1"} isSubmitted={true} isRightAnswer/>
+              <AnswerOption letter={"B"} answer={"3 : 1"} isSubmitted={true}  />
+              <AnswerOption letter={"C"} answer={"2.5 : 1"} isSubmitted={true}  isChosenAnswer/>
+              <AnswerOption letter={"D"} answer={"5 : 1"} isSubmitted={true}  />
+            </div>
+
           </form>
         </main>
       </div>
