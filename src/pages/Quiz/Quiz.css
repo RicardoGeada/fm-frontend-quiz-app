@@ -123,3 +123,20 @@
     gap: var(--spacing-200);
   }
 }
+
+
+.button-primary {
+  color: var(--color-white);
+  background-color: var(--color-purple-600);
+  padding: var(--spacing-400);
+  border-radius: var(--spacing-300);
+  border: transparent;
+  outline: transparent;
+  box-shadow: var(--shadow-surface);
+}
+
+.button-primary:hover,
+.button-primary:active {
+  cursor: pointer;
+  background-color: color-mix(in srgb, var(--color-purple-600), var(--color-white));
+}

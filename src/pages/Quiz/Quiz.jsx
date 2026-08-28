@@ -32,6 +32,7 @@ function Quiz() {
               <AnswerOption letter={"B"} answer={"3 : 1"} isSubmitted={true}  />
               <AnswerOption letter={"C"} answer={"2.5 : 1"} isSubmitted={true}  isChosenAnswer/>
               <AnswerOption letter={"D"} answer={"5 : 1"} isSubmitted={true}  />
+              <button className="button-primary text-preset-4" type="button">Submit Answer</button>
             </div>
 
           </form>
