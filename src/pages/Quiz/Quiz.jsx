@@ -1,8 +1,10 @@
 import "./Quiz.css";
 import Header from "../../components/Header/Header";
 import AnswerOption from "../../components/AnswerOption/AnswerOption";
+import errorIcon from "../../assets/images/icon-error.svg";
 
 function Quiz() {
+
   return (
     <div className="quiz-page">
       <div className="quiz-page__content">
@@ -28,13 +30,29 @@ function Quiz() {
 
           <form className="quiz__form">
             <div className="quiz__answers">
-              <AnswerOption letter={"A"} answer={"4.5 : 1"} isSubmitted={true} isRightAnswer/>
-              <AnswerOption letter={"B"} answer={"3 : 1"} isSubmitted={true}  />
-              <AnswerOption letter={"C"} answer={"2.5 : 1"} isSubmitted={true}  isChosenAnswer/>
-              <AnswerOption letter={"D"} answer={"5 : 1"} isSubmitted={true}  />
-              <button className="button-primary text-preset-4" type="button">Submit Answer</button>
+              <AnswerOption
+                letter={"A"}
+                answer={"4.5 : 1"}
+                isSubmitted={true}
+                isRightAnswer
+              />
+              <AnswerOption letter={"B"} answer={"3 : 1"} isSubmitted={true} />
+              <AnswerOption
+                letter={"C"}
+                answer={"2.5 : 1"}
+                isSubmitted={true}
+                isChosenAnswer
+              />
+              <AnswerOption letter={"D"} answer={"5 : 1"} isSubmitted={true} />
             </div>
-
+              <button className="button-primary text-preset-4" type="button">
+                Submit Answer
+              </button>
+              {/* No Answer - Notification */}
+              <div className="no-answer-notification text-preset-5 text-preset-5--regular">
+                <img src={errorIcon} alt="" />
+                Please select an answer
+              </div>
           </form>
         </main>
       </div>
