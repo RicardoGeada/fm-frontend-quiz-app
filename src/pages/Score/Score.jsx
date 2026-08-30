@@ -1,4 +1,5 @@
 import Header from "../../components/Header/Header";
+import QuizInfo from "../../components/Header/QuizInfo/QuizInfo";
 import "./Score.css";
 
 function Score() {
@@ -13,6 +14,15 @@ function Score() {
             </span>
             <span className="text-preset-2">You scored ...</span>
           </p>
+          <div className="score-page_container">
+            <div className="score-board">
+                <QuizInfo />
+                <div className="score-board__container">
+                    <span className="score-board__score text-preset-1">8</span>
+                    <span className="score-board__total text-preset-5 text-preset-5--medium">out of 10</span>
+                </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
