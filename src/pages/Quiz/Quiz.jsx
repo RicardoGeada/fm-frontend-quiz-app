@@ -2,6 +2,7 @@ import "./Quiz.css";
 import Header from "../../components/Header/Header";
 import AnswerOption from "../../components/AnswerOption/AnswerOption";
 import errorIcon from "../../assets/images/icon-error.svg";
+import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 
 function Quiz() {
 
@@ -45,9 +46,7 @@ function Quiz() {
               />
               <AnswerOption letter={"D"} answer={"5 : 1"} isSubmitted={true} />
             </div>
-              <button className="button-primary text-preset-4" type="button">
-                Submit Answer
-              </button>
+              <PrimaryButton type="button" >Submit Answer</PrimaryButton>
               {/* No Answer - Notification */}
               <div className="no-answer-notification text-preset-5 text-preset-5--regular">
                 <img src={errorIcon} alt="" />

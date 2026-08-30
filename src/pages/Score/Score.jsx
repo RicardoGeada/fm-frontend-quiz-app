@@ -1,5 +1,6 @@
 import Header from "../../components/Header/Header";
 import QuizInfo from "../../components/Header/QuizInfo/QuizInfo";
+import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import "./Score.css";
 
 function Score() {
@@ -22,6 +23,7 @@ function Score() {
                     <span className="score-board__total text-preset-5 text-preset-5--medium">out of 10</span>
                 </div>
             </div>
+            <PrimaryButton>Play Again</PrimaryButton>
           </div>
         </main>
       </div>
