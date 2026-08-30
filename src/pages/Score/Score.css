@@ -1,0 +1,48 @@
+.score-page {
+  padding: var(--spacing-200) var(--spacing-300);
+}
+
+.score-page__content {
+  margin: auto;
+  max-width: 1157px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-600);
+}
+
+.score-page__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-500);
+}
+
+/* layout - tablet */
+@media screen and (min-width: 48em) {
+  .score-page {
+    padding: var(--spacing-500) var(--spacing-800);
+  }
+}
+
+/* layout - desktop */
+@media screen and (min-width: 67.5em) {
+  .score-page {
+    padding: var(--spacing-1100) var(--spacing-800);
+  }
+
+  .score-page__content {
+    gap: var(--spacing-1100);
+  }
+
+  .score-page__main {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--spacing-1600);
+  }
+}
+
+
+.score-page__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+}
