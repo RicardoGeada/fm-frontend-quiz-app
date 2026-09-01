@@ -5,11 +5,14 @@ import "./index.css";
 import "./styles/fonts.css";
 import "./styles/typography.css";
 import App from "./App.jsx";
+import QuizProvider from "./context/QuizProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <QuizProvider>
+        <App />
+      </QuizProvider>
     </BrowserRouter>
   </StrictMode>,
 );

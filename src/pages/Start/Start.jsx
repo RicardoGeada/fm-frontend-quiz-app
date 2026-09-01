@@ -5,8 +5,18 @@ import html from "../../assets/images/icon-html.svg";
 import css from "../../assets/images/icon-css.svg";
 import javascript from "../../assets/images/icon-js.svg";
 import accessibillity from "../../assets/images/icon-accessibility.svg";
+import { useQuizContext } from "../../context/useQuizContext";
 
 function Start() {
+  const { quizzes } = useQuizContext();
+
+  const quizIcons = {
+    HTML: { icon: html, color: "var(--color-orange-50)" },
+    CSS: { icon: css, color: "var(--color-green-100)" },
+    JavaScript: { icon: javascript, color: "var(--color-blue-50)" },
+    Accessibility: { icon: accessibillity, color: "var(--color-purple-100)" },
+  };
+
   return (
     <div className="page">
       <div className="page__content">
@@ -17,13 +27,19 @@ function Start() {
               <span className="text-preset-2--light">Welcome to the</span>
               <span>Frontend Quiz!</span>
             </h1>
-            <span className="headline__subtitle text-preset-5">Pick a subject to get started.</span>
+            <span className="headline__subtitle text-preset-5">
+              Pick a subject to get started.
+            </span>
           </div>
           <div className="quiz-buttons">
-            <ButtonWithIcon icon={html} iconBackgroundColor={"var(--color-orange-50)"} text={"HTML"}/>
-            <ButtonWithIcon icon={css} iconBackgroundColor={"var(--color-green-100)"} text={"CSS"}/>
-            <ButtonWithIcon icon={javascript} iconBackgroundColor={"var(--color-blue-50)"} text={"Javascript"}/>
-            <ButtonWithIcon icon={accessibillity} iconBackgroundColor={"var(--color-purple-100)"} text={"Accessebility"}/>
+            {quizzes.map((quiz) => (
+              <ButtonWithIcon
+                key={quiz.title}
+                text={quiz.title}
+                icon={quizIcons[quiz.title].icon}
+                iconBackgroundColor={quizIcons[quiz.title].color}
+              />
+            ))}
           </div>
         </main>
       </div>
