@@ -1,9 +1,9 @@
 import "./ButtonWithIcon.css";
 
 
-function ButtonWithIcon({ icon, iconBackgroundColor, text }) {
+function ButtonWithIcon({ icon, iconBackgroundColor, text, ...props }) {
   return (
-    <button className="button-with-icon text-preset-4">
+    <button className="button-with-icon text-preset-4" {...props}>
       <div
         className="button-with-icon__image"
         style={{ backgroundColor: iconBackgroundColor }}

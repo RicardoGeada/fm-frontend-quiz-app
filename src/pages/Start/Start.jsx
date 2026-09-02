@@ -6,9 +6,11 @@ import css from "../../assets/images/icon-css.svg";
 import javascript from "../../assets/images/icon-js.svg";
 import accessibillity from "../../assets/images/icon-accessibility.svg";
 import { useQuizContext } from "../../context/useQuizContext";
+import { useNavigate } from "react-router-dom";
 
 function Start() {
-  const { quizzes } = useQuizContext();
+  const navigate = useNavigate();
+  const { quizzes, selectQuiz } = useQuizContext();
 
   const quizIcons = {
     HTML: { icon: html, color: "var(--color-orange-50)" },
@@ -16,6 +18,11 @@ function Start() {
     JavaScript: { icon: javascript, color: "var(--color-blue-50)" },
     Accessibility: { icon: accessibillity, color: "var(--color-purple-100)" },
   };
+
+  function handleQuizSelect(id) {
+    selectQuiz(id);
+    navigate("/quiz");
+  }
 
   return (
     <div className="page">
@@ -32,12 +39,13 @@ function Start() {
             </span>
           </div>
           <div className="quiz-buttons">
-            {quizzes.map((quiz) => (
+            {quizzes.map((quiz, index) => (
               <ButtonWithIcon
                 key={quiz.title}
                 text={quiz.title}
                 icon={quizIcons[quiz.title].icon}
                 iconBackgroundColor={quizIcons[quiz.title].color}
+                onClick={() => handleQuizSelect(index)}
               />
             ))}
           </div>
