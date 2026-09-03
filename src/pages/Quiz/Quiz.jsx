@@ -3,8 +3,10 @@ import Header from "../../components/Header/Header";
 import AnswerOption from "../../components/AnswerOption/AnswerOption";
 import errorIcon from "../../assets/images/icon-error.svg";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
+import { useQuizContext } from "../../context/useQuizContext";
 
 function Quiz() {
+  const { currentQuestion, currentQuestionIndex, totalQuestions } = useQuizContext();
 
   return (
     <div className="quiz-page">
@@ -14,37 +16,25 @@ function Quiz() {
           <section className="quiz__question-section">
             <div className="quiz__question-content">
               <p className="quiz__progress-text text-preset-5">
-                Question 6 of 10
+                Question {currentQuestionIndex + 1} of {totalQuestions}
               </p>
 
               <p className="quiz__question text-preset-3">
-                Which of these color contrast ratios defines the minimum WCAG
-                2.1 Level AA requirement for normal text?
+                {currentQuestion?.question}
               </p>
             </div>
 
             <div
               className="quiz__progress-bar"
-              style={{ "--progress": "60%" }}
+              style={{ "--progress": `${((currentQuestionIndex + 1) / totalQuestions) * 100}%` }}
             ></div>
           </section>
 
           <form className="quiz__form">
             <div className="quiz__answers">
-              <AnswerOption
-                letter={"A"}
-                answer={"4.5 : 1"}
-                isSubmitted={true}
-                isRightAnswer
-              />
-              <AnswerOption letter={"B"} answer={"3 : 1"} isSubmitted={true} />
-              <AnswerOption
-                letter={"C"}
-                answer={"2.5 : 1"}
-                isSubmitted={true}
-                isChosenAnswer
-              />
-              <AnswerOption letter={"D"} answer={"5 : 1"} isSubmitted={true} />
+              {currentQuestion?.options.map( (option, index) => {
+                return <AnswerOption key={index} letter={"abcdefghijklmnopqrstuvwxyz".split("")[index].toUpperCase()} answer={option}/>
+              })}
             </div>
               <PrimaryButton type="button" >Submit Answer</PrimaryButton>
               {/* No Answer - Notification */}
