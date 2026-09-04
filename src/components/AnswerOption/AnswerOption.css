@@ -8,6 +8,7 @@
   color: var(--color-blue-900);
   background-color: var(--color-white);
   box-shadow: var(--shadow-surface);
+  cursor: pointer;
 }
 
 .answer-option input[type="radio"] {
@@ -57,11 +58,13 @@
 }
 
 /* checked */
-.answer-option:has(input[type="radio"]:checked) {
+.answer-option:has(input[type="radio"]:checked),
+.answer-option:hover {
   outline-color: var(--color-purple-600);
 }
 
-.answer-option:has(input[type="radio"]:checked) .answer-option__letter {
+.answer-option:has(input[type="radio"]:checked) .answer-option__letter,
+.answer-option:hover .answer-option__letter {
   color: var(--color-white);
   background-color: var(--color-purple-600);
 }
