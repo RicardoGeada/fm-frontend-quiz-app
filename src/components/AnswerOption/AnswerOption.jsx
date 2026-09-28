@@ -14,7 +14,7 @@ function AnswerOption({
     <label
       className={`answer-option ${isChosenAnswer && (isRightAnswer ? "answer-option--right" : "answer-option--wrong")} text-preset-4`}
     >
-      <input type="radio" name="option" disabled={isSubmitted} />
+      <input type="radio" name="option" value={answer} disabled={isSubmitted} />
       <div className="answer-option__letter">{letter}</div>
       <p>{answer}</p>
       {isSubmitted &&

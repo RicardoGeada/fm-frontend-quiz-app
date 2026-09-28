@@ -10,13 +10,17 @@ function QuizProvider({ children }) {
     setSelectedQuizId(id);
   }
 
+  function nextQuestion() {
+    setCurrentQuestionIndex(prev => prev + 1);
+  }
+
   const selectedQuiz = quizzes[selectedQuizId] ?? undefined;
   const currentQuestion = selectedQuiz?.questions[currentQuestionIndex];
   const totalQuestions = selectedQuiz?.questions.length;
 
 
   return (
-    <QuizContext.Provider value={{ quizzes, selectedQuizId, selectQuiz, currentQuestion, currentQuestionIndex, totalQuestions}}>{children}</QuizContext.Provider>
+    <QuizContext.Provider value={{ quizzes, selectedQuizId, selectQuiz, currentQuestion, currentQuestionIndex, totalQuestions, nextQuestion}}>{children}</QuizContext.Provider>
   );
 }
 
