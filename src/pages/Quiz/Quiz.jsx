@@ -12,12 +12,13 @@ function Quiz() {
     currentQuestionIndex,
     totalQuestions,
     nextQuestion,
+    selectedAnswer,
+    setSelectedAnswer,
   } = useQuizContext();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showError, setShowError] = useState(false);
 
   function handleSubmit(e) {
-    console.log("SUBMIT");
     // prevent reloading
     e.preventDefault();
 
@@ -25,14 +26,12 @@ function Quiz() {
     const form = e.target;
     const formData = new FormData(form);
     const option = formData.get("option");
-    console.log(`Your answer was: ${option}`);
 
     if (option === null) {
       setShowError(true);
     } else {
       setShowError(false);
       setIsSubmitted(true);
-      form.reset();
     }
   }
 
@@ -40,6 +39,7 @@ function Quiz() {
     setShowError(false);
     nextQuestion();
     setIsSubmitted(false);
+    setSelectedAnswer(null);
   }
 
   return (
@@ -72,10 +72,12 @@ function Quiz() {
                 return (
                   <AnswerOption
                     key={index}
-                    letter={"abcdefghijklmnopqrstuvwxyz"
-                      .split("")[index].toUpperCase()}
+                    letter={"abcdefghijklmnopqrstuvwxyz".split("")[index].toUpperCase()}
                     answer={option}
                     isSubmitted={isSubmitted}
+                    isSelected={selectedAnswer === option}
+                    isRightAnswer={option === currentQuestion.answer}
+                    onSelect={() => setSelectedAnswer(option)}
                   />
                 );
               })}

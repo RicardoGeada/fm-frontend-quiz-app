@@ -71,20 +71,20 @@
 
 /* right answer */
 .answer-option--right {
-  outline-color: var(--color-green-500);
+  outline-color: var(--color-green-500) !important;
 }
 
 .answer-option--right .answer-option__letter {
   color: var(--color-white);
-  background-color: var(--color-green-500);
+  background-color: var(--color-green-500) !important;
 }
 
 /* wrong answer */
 .answer-option--wrong {
-  outline-color: var(--color-red-500);
+  outline-color: var(--color-red-500) !important;
 }
 
 .answer-option--wrong .answer-option__letter {
   color: var(--color-white);
-  background-color: var(--color-red-500);
+  background-color: var(--color-red-500) !important;
 }

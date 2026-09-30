@@ -5,6 +5,7 @@ import { useState } from "react";
 function QuizProvider({ children }) {
   const [selectedQuizId, setSelectedQuizId] = useState(undefined);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null)
 
   function selectQuiz(id) {
     setSelectedQuizId(id);
@@ -20,7 +21,7 @@ function QuizProvider({ children }) {
 
 
   return (
-    <QuizContext.Provider value={{ quizzes, selectedQuizId, selectQuiz, currentQuestion, currentQuestionIndex, totalQuestions, nextQuestion}}>{children}</QuizContext.Provider>
+    <QuizContext.Provider value={{ quizzes, selectedQuizId, selectQuiz, currentQuestion, currentQuestionIndex, totalQuestions, nextQuestion, selectedAnswer, setSelectedAnswer}}>{children}</QuizContext.Provider>
   );
 }
 
