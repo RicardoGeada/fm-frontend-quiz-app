@@ -20,6 +20,13 @@ function QuizProvider({ children }) {
     setScore(prev => prev + 1);
   }
 
+  function playAgain() {
+    setSelectedQuizId(undefined);
+    setCurrentQuestionIndex(0);
+    setSelectedAnswer(null);
+    setScore(0);
+  }
+
   const selectedQuiz = quizzes[selectedQuizId] ?? undefined;
   const currentQuestion = selectedQuiz?.questions[currentQuestionIndex];
   const totalQuestions = selectedQuiz?.questions.length;
@@ -38,6 +45,7 @@ function QuizProvider({ children }) {
         setSelectedAnswer,
         score,
         increaseScore,
+        playAgain,
       }}
     >
       {children}

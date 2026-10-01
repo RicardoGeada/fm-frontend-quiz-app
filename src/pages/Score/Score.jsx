@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import QuizInfo from "../../components/Header/QuizInfo/QuizInfo";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
@@ -5,8 +6,13 @@ import { useQuizContext } from "../../context/useQuizContext";
 import "./Score.css";
 
 function Score() {
-  const {score, totalQuestions} = useQuizContext();
+  const navigate = useNavigate();
+  const {score, totalQuestions, playAgain} = useQuizContext();
 
+  function handlePlayAgain() {
+    playAgain();
+    navigate("/");
+  }
 
   return (
     <div className="score-page">
@@ -27,7 +33,7 @@ function Score() {
                     <span className="score-board__total text-preset-5 text-preset-5--medium">out of {totalQuestions}</span>
                 </div>
             </div>
-            <PrimaryButton>Play Again</PrimaryButton>
+            <PrimaryButton onClick={handlePlayAgain}>Play Again</PrimaryButton>
           </div>
         </main>
       </div>
