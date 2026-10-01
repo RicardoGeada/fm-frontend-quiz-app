@@ -1,9 +1,13 @@
 import Header from "../../components/Header/Header";
 import QuizInfo from "../../components/Header/QuizInfo/QuizInfo";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
+import { useQuizContext } from "../../context/useQuizContext";
 import "./Score.css";
 
 function Score() {
+  const {score, totalQuestions} = useQuizContext();
+
+
   return (
     <div className="score-page">
       <div className="score-page__content">
@@ -19,8 +23,8 @@ function Score() {
             <div className="score-board">
                 <QuizInfo />
                 <div className="score-board__container">
-                    <span className="score-board__score text-preset-1">8</span>
-                    <span className="score-board__total text-preset-5 text-preset-5--medium">out of 10</span>
+                    <span className="score-board__score text-preset-1">{score}</span>
+                    <span className="score-board__total text-preset-5 text-preset-5--medium">out of {totalQuestions}</span>
                 </div>
             </div>
             <PrimaryButton>Play Again</PrimaryButton>
