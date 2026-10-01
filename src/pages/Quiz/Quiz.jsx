@@ -5,8 +5,10 @@ import errorIcon from "../../assets/images/icon-error.svg";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { useQuizContext } from "../../context/useQuizContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Quiz() {
+  const navigate = useNavigate();
   const {
     currentQuestion,
     currentQuestionIndex,
@@ -14,6 +16,7 @@ function Quiz() {
     nextQuestion,
     selectedAnswer,
     setSelectedAnswer,
+    increaseScore,
   } = useQuizContext();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -31,15 +34,22 @@ function Quiz() {
       setShowError(true);
     } else {
       setShowError(false);
+      if (selectedAnswer === currentQuestion.answer) increaseScore();
       setIsSubmitted(true);
     }
   }
 
   function handleNextQuestion() {
     setShowError(false);
-    nextQuestion();
     setIsSubmitted(false);
     setSelectedAnswer(null);
+
+    if (currentQuestionIndex === totalQuestions - 1) {
+      navigate("/score");
+      return;
+    }
+
+    nextQuestion();
   }
 
   return (
