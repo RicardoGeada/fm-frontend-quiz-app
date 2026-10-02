@@ -12,7 +12,15 @@
 }
 
 .answer-option input[type="radio"] {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .answer-option__letter {
@@ -63,6 +71,11 @@
   outline-color: var(--color-purple-600);
 }
 
+.answer-option:has(input[type="radio"]:focus-visible) {
+  outline: 3px dotted var(--color-purple-600);
+}
+
+.answer-option:has(input[type="radio"]:focus-visible) .answer-option__letter,
 .answer-option:has(input[type="radio"]:checked) .answer-option__letter,
 .answer-option:hover .answer-option__letter {
   color: var(--color-white);

@@ -40,7 +40,7 @@
 
 .theme-toggle__switch
   input[type="checkbox"]:focus-visible
-  + .light-dark-toggle__slider {
+  + .theme-toggle__slider {
   outline: 1px solid var(--color-black);
 }
 
