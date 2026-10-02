@@ -7,10 +7,10 @@ import "./Score.css";
 
 function Score() {
   const navigate = useNavigate();
-  const {score, totalQuestions, playAgain} = useQuizContext();
+  const {score, totalQuestions, resetQuiz} = useQuizContext();
 
   function handlePlayAgain() {
-    playAgain();
+    resetQuiz();
     navigate("/");
   }
 

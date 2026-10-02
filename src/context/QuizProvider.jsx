@@ -1,35 +1,77 @@
 import QuizContext from "./QuizContext.js";
 import { quizzes } from "../data/data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const STORAGE_KEY = "quizState";
+
+const initialQuizState = {
+  selectedQuizId: undefined,
+  currentQuestionIndex: 0,
+  selectedAnswer: null,
+  score: 0,
+};
 
 function QuizProvider({ children }) {
-  const [selectedQuizId, setSelectedQuizId] = useState(undefined);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [score, setScore] = useState(0);
+  const [quizState, setQuizState] = useState(() => {
+    const savedState = localStorage.getItem(STORAGE_KEY);
 
-  function selectQuiz(id) {
-    setSelectedQuizId(id);
-  }
+    return savedState ? JSON.parse(savedState) : initialQuizState;
+  });
 
-  function nextQuestion() {
-    setCurrentQuestionIndex((prev) => prev + 1);
-  }
-
-  function increaseScore() {
-    setScore(prev => prev + 1);
-  }
-
-  function playAgain() {
-    setSelectedQuizId(undefined);
-    setCurrentQuestionIndex(0);
-    setSelectedAnswer(null);
-    setScore(0);
-  }
+  const { selectedQuizId, currentQuestionIndex, selectedAnswer, score } =
+    quizState;
 
   const selectedQuiz = quizzes[selectedQuizId] ?? undefined;
   const currentQuestion = selectedQuiz?.questions[currentQuestionIndex];
   const totalQuestions = selectedQuiz?.questions.length;
+
+  
+  function selectQuiz(id) {
+    setQuizState({
+      selectedQuizId: id,
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      score: 0,
+    });
+  }
+
+
+  function setSelectedAnswer(answer) {
+    setQuizState((prev) => ({
+      ...prev,
+      selectedAnswer: answer,
+    }));
+  }
+
+
+  function nextQuestion() {
+    setQuizState((prev) => ({
+      ...prev,
+      currentQuestionIndex: prev.currentQuestionIndex + 1,
+      selectedAnswer: null,
+    }));
+  }
+
+
+  function increaseScore() {
+    setQuizState((prev) => ({
+      ...prev,
+      score: prev.score + 1,
+    }));
+  }
+
+
+  function resetQuiz() {
+    setQuizState(initialQuizState);
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
+
+  useEffect(() => {
+    if(quizState.selectedQuizId === undefined) return;
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(quizState));
+  }, [quizState])
 
   return (
     <QuizContext.Provider
@@ -45,7 +87,7 @@ function QuizProvider({ children }) {
         setSelectedAnswer,
         score,
         increaseScore,
-        playAgain,
+        resetQuiz,
       }}
     >
       {children}
