@@ -25,7 +25,13 @@ function QuizProvider({ children }) {
   const currentQuestion = selectedQuiz?.questions[currentQuestionIndex];
   const totalQuestions = selectedQuiz?.questions.length;
 
-  
+  const hasValidQuizState =
+    selectedQuizId !== undefined &&
+    selectedQuiz !== undefined &&
+    currentQuestionIndex >= 0 &&
+    currentQuestionIndex < totalQuestions;
+
+
   function selectQuiz(id) {
     setQuizState({
       selectedQuizId: id,
@@ -88,6 +94,7 @@ function QuizProvider({ children }) {
         score,
         increaseScore,
         resetQuiz,
+        hasValidQuizState
       }}
     >
       {children}

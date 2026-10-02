@@ -4,7 +4,7 @@ import AnswerOption from "../../components/AnswerOption/AnswerOption";
 import errorIcon from "../../assets/images/icon-error.svg";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { useQuizContext } from "../../context/useQuizContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Quiz() {
@@ -17,9 +17,14 @@ function Quiz() {
     selectedAnswer,
     setSelectedAnswer,
     increaseScore,
+    hasValidQuizState
   } = useQuizContext();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showError, setShowError] = useState(false);
+
+  useEffect(() => {
+    if(!hasValidQuizState) navigate("/");
+  }, [hasValidQuizState, navigate])
 
   function handleSubmit(e) {
     // prevent reloading
