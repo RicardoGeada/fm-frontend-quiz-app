@@ -6,12 +6,16 @@ import moonDark from "./../../../assets/images/icon-moon-dark.svg";
 import { useState } from "react";
 
 function ThemeToggle() {
-  const [isLightTheme, setIsLightTheme] = useState(true);
+  const [isLightTheme, setIsLightTheme] = useState(() => {
+  return document.documentElement.dataset.theme !== "dark";
+});
 
   function handleToggle(event) {
-    document.documentElement.dataset.theme =
-      event.target.checked ? "dark" : "light";
-    setIsLightTheme(prev => !prev);
+    const theme = event.target.checked ? "dark" : "light";
+
+    document.documentElement.dataset.theme = theme;
+    setIsLightTheme(theme === "light");
+    localStorage.setItem("theme", theme)
   }
 
   return (
@@ -22,7 +26,7 @@ function ThemeToggle() {
         alt="light mode icon"
       />
       <label className="theme-toggle__switch">
-        <input type="checkbox" onChange={handleToggle}/>
+        <input type="checkbox" checked={!isLightTheme} onChange={handleToggle}/>
         <span className="theme-toggle__slider"></span>
       </label>
       <img
