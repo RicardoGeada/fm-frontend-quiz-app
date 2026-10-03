@@ -1,24 +1,33 @@
 import "./ThemeToggle.css";
-// import sunLight from "./../../../assets/images/icon-sun-light.svg";
+import sunLight from "./../../../assets/images/icon-sun-light.svg";
 import sunDark from "./../../../assets/images/icon-sun-dark.svg";
-// import moonLight from "./../../../assets/images/icon-moon-light.svg";
+import moonLight from "./../../../assets/images/icon-moon-light.svg";
 import moonDark from "./../../../assets/images/icon-moon-dark.svg";
+import { useState } from "react";
 
 function ThemeToggle() {
+  const [isLightTheme, setIsLightTheme] = useState(true);
+
+  function handleToggle(event) {
+    document.documentElement.dataset.theme =
+      event.target.checked ? "dark" : "light";
+    setIsLightTheme(prev => !prev);
+  }
+
   return (
     <div className="theme-toggle">
       <img
         className="theme-toggle__icon"
-        src={sunDark}
+        src={isLightTheme ? sunDark : sunLight}
         alt="light mode icon"
       />
       <label className="theme-toggle__switch">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={handleToggle}/>
         <span className="theme-toggle__slider"></span>
       </label>
       <img
         className="theme-toggle__icon"
-        src={moonDark}
+        src={isLightTheme ? moonDark: moonLight}
         alt="dark mode icon"
       />
     </div>

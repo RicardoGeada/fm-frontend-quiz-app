@@ -44,6 +44,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-100);
+  color: var(--color-text-primary);
 }
 
 .score-page_container {
@@ -68,7 +69,7 @@
 }
 
 .score-board {
-  background-color: var(--color-white);
+  background-color: var(--bg-surface);
   border-radius: 12px;
   padding: var(--spacing-400);
   display: flex;
@@ -84,11 +85,11 @@
 }
 
 .score-board__score {
-  color: var(--color-blue-900);
+  color: var(--color-text-primary);
 }
 
 .score-board__total {
-  color: var(--color-grey-500);
+  color: var(--color-text-secondary);
 }
 
 /* layout - tablet */

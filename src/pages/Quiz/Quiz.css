@@ -53,11 +53,11 @@
 }
 
 .quiz__progress-text {
-  color: var(--color-grey-500);
+  color: var(--color-text-secondary);
 }
 
 .quiz__question {
-  color: var(--color-blue-900);
+  color: var(--color-text-primary);
 }
 
 /* layout - tablet */
@@ -79,7 +79,7 @@
   --proress: 0%;
   height: 16px;
   width: 100%;
-  background-color: var(--color-white);
+  background-color: var(--bg-surface);
   border-radius: 999px;
   padding: 4px;
 }

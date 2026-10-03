@@ -5,8 +5,8 @@
   padding: var(--spacing-200);
   border-radius: 12px;
   outline: 3px solid transparent;
-  color: var(--color-blue-900);
-  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  background-color: var(--bg-surface);
   box-shadow: var(--shadow-surface);
   cursor: pointer;
 }
