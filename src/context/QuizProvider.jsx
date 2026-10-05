@@ -1,6 +1,8 @@
 import QuizContext from "./QuizContext.js";
-import { quizzes } from "../data/data.json";
+import data from "../data/data.json";
 import { useEffect, useState } from "react";
+
+const { quizzes } = data;
 
 const STORAGE_KEY = "quizState";
 
@@ -21,7 +23,9 @@ function QuizProvider({ children }) {
   const { selectedQuizId, currentQuestionIndex, selectedAnswer, score } =
     quizState;
 
-  const selectedQuiz = quizzes[selectedQuizId] ?? undefined;
+  const selectedQuiz = selectedQuizId !== undefined
+    ? quizzes[selectedQuizId]
+    : undefined;
   const currentQuestion = selectedQuiz?.questions[currentQuestionIndex];
   const totalQuestions = selectedQuiz?.questions.length;
 
@@ -84,6 +88,7 @@ function QuizProvider({ children }) {
       value={{
         quizzes,
         selectedQuizId,
+        selectedQuiz,
         selectQuiz,
         currentQuestion,
         currentQuestionIndex,

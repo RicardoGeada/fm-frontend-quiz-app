@@ -1,23 +1,20 @@
 import "./Start.css";
 import Header from "../../components/Header/Header";
 import ButtonWithIcon from "../../components/ButtonWithIcon/ButtonWithIcon";
-import html from "../../assets/images/icon-html.svg";
-import css from "../../assets/images/icon-css.svg";
-import javascript from "../../assets/images/icon-js.svg";
-import accessibillity from "../../assets/images/icon-accessibility.svg";
 import { useQuizContext } from "../../context/useQuizContext";
 import { useNavigate } from "react-router-dom";
+import { quizIcons } from "../../data/quizIcons";
+import { useEffect } from "react";
 
 function Start() {
   const navigate = useNavigate();
-  const { quizzes, selectQuiz } = useQuizContext();
+  const { quizzes, selectQuiz, resetQuiz } = useQuizContext();
 
-  const quizIcons = {
-    HTML: { icon: html, color: "var(--color-orange-50)" },
-    CSS: { icon: css, color: "var(--color-green-100)" },
-    JavaScript: { icon: javascript, color: "var(--color-blue-50)" },
-    Accessibility: { icon: accessibillity, color: "var(--color-purple-100)" },
-  };
+  useEffect(() => {
+    resetQuiz();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   function handleQuizSelect(id) {
     selectQuiz(id);
