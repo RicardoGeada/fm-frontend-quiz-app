@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/fm-frontend-quiz-app/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quiz-react</title>
+    <script type="module" crossorigin src="/fm-frontend-quiz-app/assets/index-CFOQRKNQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/fm-frontend-quiz-app/assets/index-B-AzoyL9.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+
+      const theme = savedTheme ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+      document.documentElement.dataset.theme = theme;
+    </script>
+  </body>
+</html>
