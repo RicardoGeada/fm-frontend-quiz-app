@@ -10,12 +10,8 @@ This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
+
 
 ## Overview
 
@@ -44,8 +40,6 @@ Users should be able to:
 
 - Solution URL: [github.com/RicardoGeada/fm-frontend-quiz-app/](https://github.com/RicardoGeada/fm-frontend-quiz-app/)
 - Live Site URL: [ricardogeada.github.io/fm-frontend-quiz-app/](https://ricardogeada.github.io/fm-frontend-quiz-app/)
-
-## My process
 
 ### Built with
 
